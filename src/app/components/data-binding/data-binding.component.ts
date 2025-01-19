@@ -12,4 +12,8 @@ export class DataBindingComponent {
   currentYear : number = new Date().getFullYear();
   currentMonth : number = new Date().getMonth();
   currentDay : number = new Date().getDay();
+
+  buttonDisabled = true;
+  imageUrl = 'https://angular.io/assets/images/logos/angular/angular.svg';
+  inputPlaceholder = 'Enter your name';
 }
