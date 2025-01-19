@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-data-binding',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './data-binding.component.html',
   styleUrl: './data-binding.component.css'
 })
@@ -34,5 +35,10 @@ export class DataBindingComponent {
     alert('Hello, ' + this.message);
   }
 
+  onSelectChange(event: any) {
+    debugger;
+    this.message = event.target.value;
+  }
   // Two-way data binding
+  courseName : string = 'Angular Development';
 }
