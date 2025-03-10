@@ -1,0 +1,64 @@
+<p>control-flow works!</p>
+
+<div class="row">
+  <div class="col-3">
+    @if (isDiv1Visible == true) {
+    <div class="bg-body-tertiary">Div 1</div>
+    }
+  </div>
+
+  <div class="col-3">
+    @if(isDiv2Visible == "Yes") {
+    <div class="bg-danger-subtle">Div 2</div>
+    }@else {
+        <p>Div2 Hidden</p>
+    }
+  </div>
+
+  <div class="col-3">
+    <div class="bg-info">
+      @if(dayName == "Mon") {
+      <p>Today is Monday</p>
+      }@else if(dayName == "Tue") {
+      <p>Today is Tuesday</p>
+      }@else if(dayName == "Wed") {
+      <p>Today is Wednesday</p>
+      }@else if(dayName == "Thu") {
+      <p>Today is Thursday</p>
+      }@else if(dayName == "Fri") {
+      <p>Today is Friday</p>
+      }@else if(dayName == "Sat") {
+      <p>Today is Saturday</p>
+      }@else if(dayName == "Sun") {
+      <p>Today is Sunday</p>
+      }@else {
+      <p>Invalid Day</p>
+      } 
+    </div>
+  </div>
+</div>
+
+<div class="row pt-3">
+  <div class="col-3">
+    <button
+      class="btn btn-success"
+      style="padding: 10px 20px"
+      (click)="showHideDiv1(true)"
+    >
+      Show
+    </button>
+    <button
+      class="btn btn-danger"
+      style="padding: 10px 20px; margin-left: 10px"
+      (click)="showHideDiv1(false)"
+    >
+      Hide
+    </button>
+  </div>
+  <div class="col-3">
+    <input type="text" [(ngModel)]="isDiv2Visible"/>
+  </div>
+  <div class="col-3">
+    <input type="text" maxlength="3" [(ngModel)]="dayName"/>
+  </div>
+</div>
