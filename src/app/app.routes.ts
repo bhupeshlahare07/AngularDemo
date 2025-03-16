@@ -4,6 +4,7 @@ import { UserComponent } from './components/user/user.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
 import { ControlFlowComponent } from './components/control-flow/control-flow.component';
 import { GetAPIComponent } from './components/get-api/get-api.component';
+import { VideosComponent } from './components/videos/videos.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         path: 'get-api',
         component: GetAPIComponent
+    },
+    {
+        path: 'video',
+        component: VideosComponent
     }
 ];
