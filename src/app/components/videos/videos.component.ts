@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { VideoService } from '../../service/video.service';
+import { VideoModel } from '../../model/video';
 
 @Component({
   selector: 'app-videos',
@@ -7,6 +9,17 @@ import { Component } from '@angular/core';
   templateUrl: './videos.component.html',
   styleUrl: './videos.component.css'
 })
-export class VideosComponent {
+export class VideosComponent implements OnInit {
+  ngOnInit(): void {
+    this.getVideoList();
+  }
+  videoList: VideoModel[] = [];
+  videoSrv = inject(VideoService);
+
+  getVideoList(){
+    return this.videoSrv.getVideoList().subscribe((result:any)=>{
+      this.videoList = result.data;
+    })
+  }
 
 }
