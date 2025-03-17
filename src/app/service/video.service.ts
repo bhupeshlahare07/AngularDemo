@@ -20,8 +20,13 @@ export class VideoService {
     return this.http.post(this.apiUrl + 'AddNewVideo', obj);
   }
 
-  UpdateVideo(obj:VideoModel){
+  updateVideo(obj:VideoModel){
     debugger;
     return this.http.put(this.apiUrl + 'UpdateVideo', obj);
+  }
+  
+  deleteVideo(videoId:number){
+    debugger;
+    return this.http.delete(this.apiUrl + 'DeleteVideo?videoId='+ videoId);
   }
 }

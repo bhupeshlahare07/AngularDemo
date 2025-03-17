@@ -27,11 +27,11 @@ export class VideosComponent implements OnInit {
   onSaveVideo() {
     debugger;
     this.videoSrv.saveVideo(this.videoObj).subscribe((result: any) => {
-      if(result.result){
+      if (result.result) {
         alert('Video saved successfully');
         this.getVideoList();
       }
-      else{
+      else {
         alert(result.message);
       }
     })
@@ -44,15 +44,31 @@ export class VideosComponent implements OnInit {
 
   onUpdateVideo() {
     debugger;
-    this.videoSrv.UpdateVideo(this.videoObj).subscribe((result: any) => {
-      if(result.result){
+    this.videoSrv.updateVideo(this.videoObj).subscribe((result: any) => {
+      if (result.result) {
         alert('Video updated successfully');
         this.getVideoList();
       }
-      else{
+      else {
         alert(result.message);
       }
     })
+  }
+
+  onDeleteVideo(videoId: number) {
+    debugger;
+    const isDelete = confirm('Do you want to delete this video?');
+    if (isDelete) {
+      this.videoSrv.deleteVideo(videoId).subscribe((result: any) => {
+        if (result.result) {
+          alert('Video deleted successfully');
+          this.getVideoList();
+        }
+        else {
+          alert(result.message);
+        }
+      })
+    }
   }
 
 }
