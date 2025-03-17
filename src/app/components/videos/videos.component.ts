@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { VideoService } from '../../service/video.service';
 import { VideoModel } from '../../model/video';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-videos',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './videos.component.html',
   styleUrl: './videos.component.css'
 })
@@ -14,11 +15,25 @@ export class VideosComponent implements OnInit {
     this.getVideoList();
   }
   videoList: VideoModel[] = [];
+  videoObj: VideoModel = new VideoModel();
   videoSrv = inject(VideoService);
 
-  getVideoList(){
-    return this.videoSrv.getVideoList().subscribe((result:any)=>{
+  getVideoList() {
+    return this.videoSrv.getVideoList().subscribe((result: any) => {
       this.videoList = result.data;
+    })
+  }
+
+  onSaveVideo() {
+    debugger;
+    this.videoSrv.saveVideo(this.videoObj).subscribe((result: any) => {
+      if(result.result){
+        alert('Video saved successfully');
+        this.getVideoList();
+      }
+      else{
+        alert(result.message);
+      }
     })
   }
 
