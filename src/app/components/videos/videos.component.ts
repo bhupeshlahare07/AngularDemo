@@ -37,4 +37,22 @@ export class VideosComponent implements OnInit {
     })
   }
 
+  onEditVideo(obj: VideoModel) {
+    debugger;
+    this.videoObj = obj;
+  }
+
+  onUpdateVideo() {
+    debugger;
+    this.videoSrv.UpdateVideo(this.videoObj).subscribe((result: any) => {
+      if(result.result){
+        alert('Video updated successfully');
+        this.getVideoList();
+      }
+      else{
+        alert(result.message);
+      }
+    })
+  }
+
 }

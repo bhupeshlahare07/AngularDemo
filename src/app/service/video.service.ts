@@ -19,4 +19,9 @@ export class VideoService {
     debugger;
     return this.http.post(this.apiUrl + 'AddNewVideo', obj);
   }
+
+  UpdateVideo(obj:VideoModel){
+    debugger;
+    return this.http.put(this.apiUrl + 'UpdateVideo', obj);
+  }
 }
